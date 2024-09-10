@@ -1,0 +1,31 @@
+﻿@model DetailsVM
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Department Details</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container mt-4">
+        <p> -StdName    -StdAge   -StdDeptId   -StdCrsId</p>
+        <div>
+            <h4>Students</h4>
+            @if (Model.Students != null && Model.Students.Any())
+            {
+                <ul>
+                    @foreach (var student in Model.Students)
+                    {
+                        <li>@student.Name - @student.Age - @student.DeptId - @student.CourseId</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No students are enrolled in this department.</p>
+            }
+        </div>
+    </div>
+</body>
+</html>

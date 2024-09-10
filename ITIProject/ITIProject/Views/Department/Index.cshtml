@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ITIProject.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index Department</h1>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<p>
+    <a asp-action="Create" class="btn btn-dark">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Id
+            </th>
+            <th>
+                DeptName
+            </th>
+            <th>
+                DeptCapacity
+            </th>
+            <th>Del</th>
+            <th>Det</th>
+            <th>Edit</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @item.DeptId
+            </td>
+            <td>
+                    @item.DeptName
+            </td>
+            <td>
+                @item.Capacity
+            </td>
+           <td>
+                    <a asp-action="Remove" asp-route-id="@item.DeptId" class="btn btn-danger">Delete</a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.DeptId" class="btn btn-danger">Details</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DeptId" class="btn btn-danger">Edit</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
